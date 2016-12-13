@@ -1,0 +1,3 @@
+- Move channel into its own class
+- Move the server into its own class
+- Split channels.list into a YAML file with channels and subscribers underneath
