@@ -1,10 +1,8 @@
 Mini PubSub exists to send messages between publishers and subscribers.  The
 communication is unidirectional; that is, subscribers cannot reply to messages,
 they can only receive messages and then decide what to do with them. In fact,
-subscribers can, but are not even required, to acknowledge having received
-messages.  This means that pubsub is a "send it and forget it" messaging system
-- there is no guaranteed delivery or sending retry mechanism, because there is
-no receipt of receiving.
+subscribers can, but are not required, to acknowledge having received messages.
+This means that pubsub is a "send it and forget it" messaging system.
 
 # Roles
 
