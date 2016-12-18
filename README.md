@@ -30,13 +30,12 @@ A Channel has a list of Subscribers to which all messages are sent.
 
 ## Subscriber
 
-A Subscriber is identified by their address, which where they may be reached.
-reached (i.e. a hostname/port combination, an HTTP endpoint, STDOUT, a file,
+A Subscriber is identified by their address, which is where they may be reached.
+(i.e. a hostname/port combination, an HTTP endpoint, STDOUT, a file,
 etc.).
 
 
-## Address
-
+**Subscriber's Address**
 An Address is a way to specify a destination at which a Subscriber may be
 reached.
 
