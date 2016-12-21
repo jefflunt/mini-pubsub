@@ -70,5 +70,5 @@ Channel (is the list of Subscribers to send Messages to)
    /|\
 Sender (actually delivers the Message to Subscibers' addresses)
     |
-Subscibers (hopefully get the Message originally sent by the Publisher)
+Subscribers (hopefully get the Message originally sent by the Publisher)
 ```
