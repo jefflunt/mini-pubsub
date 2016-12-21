@@ -1,0 +1,11 @@
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/TrailingBlankLines:
+  EnforcedStyle: final_newline
+
+Style/Documentation:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false

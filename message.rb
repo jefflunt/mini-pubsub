@@ -1,14 +1,15 @@
-# A single message being sent through the pub-sub system
 class Message
-  attr_reader :channel, :text
+  attr_reader :command, :channel, :meta
 
-  def initialize(str)
-    parts = str.split(' ')
-    @channel = parts[0]
-    @text = parts[1..-1].join(' ')
+  # TODO: support multi-channel messages
+  def initialize(sanitized_input_str)
+    parts = sanitized_input_str.split(' ')
+    @command = parts[0]
+    @channel = parts[1][1..-1]
+    @meta = parts[2..-1].join(' ')
   end
 
   def to_s
-    "[#{channel}] #{text}"
+    "#{command} ##{channel} #{meta}"
   end
 end
