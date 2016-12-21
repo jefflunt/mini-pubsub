@@ -5,10 +5,10 @@ Mini PubSub is a "send it and forget it" messenging system. It makes some big
 assumptions you should be aware of:
 
 * The network you're sending messages over is mostly reliable.
-* Losing any given message, or even all messages for a short amount of time is
+* Losing any given message, or even all messages for a short amount of time, is
   acceptable so long as things come back online eventually.
 
-Think of these messsages like UDP packets - if a few get lost, so what? Move on
+Think of these messsages like UDP packets: if a few get lost, so what? Move on
 with your life.  If you need highly available, totally fault tolerant, with
 robust retry logic (the TCP equivalent), then this isn't the solution you're
 looking for.
