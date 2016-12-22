@@ -9,6 +9,6 @@ class Message
   end
 
   def to_s
-    "#{command} ##{channel} #{meta}"
+    "[#{command}] ##{channel} #{meta}"
   end
 end
