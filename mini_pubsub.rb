@@ -15,6 +15,6 @@ rescue MiniPubSub::EndOfSTDIN, Interrupt => e
   print "Normal shutdown due to #{e.class.name}. Exiting ... "
 end
 
-ChannelSerializer.write_file
+ChannelSerializer.write_file(router.channels)
 
 puts 'DONE'

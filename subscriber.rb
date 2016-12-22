@@ -1,7 +1,7 @@
 require_relative './senders/stdout_sender'
 
 class Subscriber
-  attr_reader :id
+  attr_reader :id, :sender
 
   def initialize(id:, sender:)
     @id = id

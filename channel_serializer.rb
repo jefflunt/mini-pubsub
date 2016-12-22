@@ -17,7 +17,16 @@ module ChannelSerializer
     end
   end
 
-  def self.write_file(filename = DEFAULT_STORAGE_FILE)
-    puts 'serializing channels is not yet don'
+  def self.write_file(channels, filename = DEFAULT_STORAGE_FILE)
+    channels_output = {}
+
+    channels.each do |channel_name, channel|
+      channels_output[channel_name] = {}
+      channel.subscribers.each do |sub|
+        channels_output[channel_name][sub.id] = sub.sender.to_s
+      end
+    end
+
+    File.open(filename, 'w') { |f| f.write(channels_output.to_yaml) }
   end
 end

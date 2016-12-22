@@ -1,4 +1,6 @@
 class Router
+  attr_reader :channels
+
   def initialize(channels)
     @channels = channels
   end

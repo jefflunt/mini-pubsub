@@ -1,5 +1,5 @@
 class Channel
-  attr_reader :name
+  attr_reader :name, :subscribers
 
   def initialize(name:, subscribers:)
     @name = name
