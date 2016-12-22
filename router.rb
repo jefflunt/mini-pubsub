@@ -15,6 +15,5 @@ class Router
     else
       raise UnknownCommand, message.command
     end
-
   end
 end
