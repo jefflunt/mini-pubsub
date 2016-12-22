@@ -8,9 +8,9 @@ class TCPReceiver
 
   def gets
     client = @server.accept
-    msg = Message.new(client.gets)
+    raw_msg = client.gets
     client.close
 
-    msg
+    Message.new(raw_msg)
   end
 end
