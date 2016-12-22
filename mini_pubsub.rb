@@ -1,10 +1,14 @@
+require_relative './config_reader'
 require_relative './router'
+require_relative './receivers/receiver_builder'
 require_relative './errors/end_of_stdin'
 require_relative './channel_serializer'
 require_relative './receivers/stdin_receiver'
 
+config = ConfigReader.load
 router = Router.new(ChannelSerializer.read_file)
-receiver = STDINReceiver.new
+receiver = ReceiverBuilder.build(config.receiver)
+puts "Receiv: #{receiver.inspect}"
 puts "Router: #{router.inspect}"
 
 begin
