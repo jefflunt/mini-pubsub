@@ -10,6 +10,11 @@ class Router
     puts "Channel name: #{message.channel}"
     puts "Channel inst: #{@channels[message.channel]}"
 
-    @channels[message.channel].publish(message)
+    case message.command
+    when 'pub'  then @channels[message.channel].publish(message)
+    else
+      raise UnknownCommand, message.command
+    end
+
   end
 end
