@@ -1,15 +1,11 @@
-require_relative './senders/stdout_sender'
+require_relative './senders/sender_builder'
 
 class Subscriber
   attr_reader :id, :sender
 
-  def initialize(id:, sender:)
+  def initialize(id:, sender_spec:)
     @id = id
-    @sender = case sender
-              when 'stdout' then STDOUTSender.new
-              else
-                raise "Unknown sender: #{sender}"
-              end
+    @sender = SenderBuilder.build(sender_spec)
   end
 
   def puts(message)

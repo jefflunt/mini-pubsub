@@ -1,3 +1,4 @@
+require 'socket'
 require_relative '../message'
 
 class TCPReceiver
