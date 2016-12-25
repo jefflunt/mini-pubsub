@@ -14,7 +14,7 @@ begin
     router.route(receiver.gets)
   end
 rescue MiniPubSub::EndOfSTDIN, Interrupt => e
-  puts "Shutdown ...\n  #{e.class.name}"
+  puts "Shutdown ... #{e.class.name}"
 rescue => e
   puts "FAILURE\n  #{e}"
 ensure
