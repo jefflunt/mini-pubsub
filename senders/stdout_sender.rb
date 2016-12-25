@@ -1,6 +1,6 @@
 class STDOUTSender
   def puts(message)
-    Kernel.puts("STDOUT: #{message.meta}")
+    Kernel.puts("STDOUT: #{message}")
   end
 
   def to_s
