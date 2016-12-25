@@ -1,2 +1,3 @@
 pub #default sample message 1
 pub #default sample message 2
+sub #default tcp localhost:1234

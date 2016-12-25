@@ -7,8 +7,7 @@ require_relative './channel_serializer'
 config = ConfigReader.load
 router = Router.new(ChannelSerializer.read_file)
 receiver = ReceiverBuilder.build(config.receiver)
-puts "Receiv: #{receiver.inspect}"
-puts "Router: #{router.inspect}"
+puts "Router: #{router}"
 
 begin
   loop do
