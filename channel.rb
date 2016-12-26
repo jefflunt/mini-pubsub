@@ -7,7 +7,7 @@ class Channel
   end
 
   def publish(message)
-    @subscribers.each do |s|
+    subscribers.each do |s|
       puts "  #{s.sender} -> ##{message.channel} #{message.body}"
       s.puts(message)
     end
