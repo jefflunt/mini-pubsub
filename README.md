@@ -1,7 +1,7 @@
 Mini PubSub sends messages between publishers and subscribers. The communication
 is unidirectional; subscribers cannot reply to messages.
 
-Mini PubSub is a "send it and forget it" messenging system. It makes some big
+Mini PubSub is a "send it and forget it" messaging system. It makes some big
 assumptions you should be aware of:
 
 * The network you're sending messages over is mostly reliable.
