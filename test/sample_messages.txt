@@ -1,3 +1,4 @@
 pub #default sample message 1
 pub #default sample message 2
 sub #default stdout
+sub-confirm #default 1234

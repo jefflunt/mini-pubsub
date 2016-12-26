@@ -1,4 +1,5 @@
 require_relative './subscriber_builder'
+require_relative './errors/unknown_command'
 
 class Router
   attr_reader :channels
@@ -15,7 +16,7 @@ class Router
     when 'pub'  then publish(message)
     when 'sub'  then send_confirmation_challenge(message)
     else
-      raise UnknownCommand, message.command
+      raise MiniPubSub::UnknownCommand, message.command
     end
   end
 

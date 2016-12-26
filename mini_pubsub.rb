@@ -17,6 +17,7 @@ rescue MiniPubSub::EndOfSTDIN, Interrupt => e
   puts "Shutdown ... #{e.class.name}"
 rescue => e
   puts "FAILURE\n  #{e}"
+  puts e.backtrace
 ensure
   ChannelSerializer.write_file(router.channels)
 end
