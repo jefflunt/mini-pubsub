@@ -4,8 +4,8 @@ require_relative './receivers/receiver_builder'
 require_relative './errors/end_of_stdin'
 require_relative './channel_serializer'
 
-config = ConfigReader.load
-router = Router.new(ChannelSerializer.read_file)
+config = ConfigReader.load('./config.yml')
+router = Router.new(ChannelSerializer.read_file(config.channels_file))
 receiver = ReceiverBuilder.build(config.receiver)
 puts "Router: #{router}"
 
@@ -19,5 +19,5 @@ rescue => e
   puts "FAILURE\n  #{e}"
   puts e.backtrace
 ensure
-  ChannelSerializer.write_file(router.channels)
+  ChannelSerializer.write_file(router.channels, config.channels_file)
 end

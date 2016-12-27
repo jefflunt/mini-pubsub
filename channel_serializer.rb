@@ -4,9 +4,7 @@ require_relative './subscriber'
 require_relative './subscriber_builder'
 
 module ChannelSerializer
-  DEFAULT_STORAGE_FILE = './channels.yml'
-
-  def self.read_file(filename = DEFAULT_STORAGE_FILE)
+  def self.read_file(filename)
     channel_data = YAML.load_file(filename)
 
     channel_data.each do |channel_name, subs_list|
@@ -17,7 +15,7 @@ module ChannelSerializer
     end
   end
 
-  def self.write_file(channels, filename = DEFAULT_STORAGE_FILE)
+  def self.write_file(channels, filename)
     channels_output = {}
 
     channels.each do |channel_name, channel|
