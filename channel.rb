@@ -1,3 +1,5 @@
+require 'set'
+
 class Channel
   attr_reader :name, :subscribers
 

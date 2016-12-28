@@ -7,10 +7,10 @@ module ChannelSerializer
   def self.read_file(filename)
     channel_data = YAML.load_file(filename)
 
-    channel_data.each do |channel_name, subs_list|
+    channel_data.each do |channel_name, data|
       channel_data[channel_name] = Channel.new(
         name: channel_name,
-        subscribers: SubscriberBuilder.build_list(subs_list)
+        subscribers: SubscriberBuilder.build_list(data['subscribers'])
       )
     end
   end
@@ -19,9 +19,9 @@ module ChannelSerializer
     channels_output = {}
 
     channels.each do |channel_name, channel|
-      channels_output[channel_name] = {}
+      channels_output[channel_name] = {'subscribers' => {}}
       channel.subscribers.each do |sub|
-        channels_output[channel_name][sub.id] = sub.sender.to_s
+        channels_output[channel_name]['subscribers'][sub.id] = sub.sender.to_s
       end
     end
 
