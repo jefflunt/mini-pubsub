@@ -1,5 +1,6 @@
 require_relative '../errors/unknown_receiver_type'
 require_relative './stdin_receiver'
+require_relative './udp_receiver'
 require_relative './tcp_receiver'
 
 module ReceiverBuilder
@@ -8,6 +9,7 @@ module ReceiverBuilder
 
     case type
     when 'stdin'  then STDINReceiver.new
+    when 'udp'    then UDPReceiver.new(meta)
     when 'tcp'    then TCPReceiver.new(meta)
     else
       raise MiniPubSub::UnknownReceiverType, type
