@@ -33,7 +33,7 @@ class Router
 
   def confirm_subscription(message)
     unless (sub = @confirmation_tokens[message.body]).nil?
-      @channels[message.channel].subscribers << sub
+      @channels[message.channel].add_subscriber(sub)
       @confirmation_tokens.delete(message.body)
     end
   end

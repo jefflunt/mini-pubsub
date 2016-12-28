@@ -16,15 +16,8 @@ module ChannelSerializer
   end
 
   def self.write_file(channels, filename)
-    channels_output = {}
-
-    channels.each do |channel_name, channel|
-      channels_output[channel_name] = {'subscribers' => {}}
-      channel.subscribers.each do |sub|
-        channels_output[channel_name]['subscribers'][sub.id] = sub.sender.to_s
-      end
+    File.open(filename, 'w') do |f|
+      channels.each{ |channel_name, channel| f.write(channel.to_yaml) }
     end
-
-    File.open(filename, 'w') { |f| f.write(channels_output.to_yaml) }
   end
 end
