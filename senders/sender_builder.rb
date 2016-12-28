@@ -1,6 +1,7 @@
 require_relative '../errors/unknown_sender_type'
 require_relative './none_sender'
 require_relative './stdout_sender'
+require_relative './stderr_sender'
 require_relative './tcp_sender'
 
 module SenderBuilder
@@ -10,6 +11,7 @@ module SenderBuilder
     case type
     when 'none'   then NoneSender.new
     when 'stdout' then STDOUTSender.new
+    when 'stderr' then STDERRSender.new
     when 'tcp'    then TCPSender.new(meta)
     else
       raise MiniPubSub::UnknownSenderType, type
