@@ -15,8 +15,8 @@ class Channel
   end
 
   def publish(message)
-    subscribers.each{ |s| s.puts(message) }
     logger.puts(message)
+    subscribers.each{ |s| s.puts(message) }
   end
 
   def to_yaml
