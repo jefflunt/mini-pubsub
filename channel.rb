@@ -2,10 +2,11 @@ require 'set'
 require 'yaml'
 
 class Channel
-  attr_reader :name, :subscribers
+  attr_reader :name, :logger, :subscribers
 
-  def initialize(name:, subscribers:)
+  def initialize(name:, logger:, subscribers:)
     @name = name
+    @logger = logger
     @subscribers = Set.new(subscribers)
   end
 
@@ -24,6 +25,11 @@ class Channel
     subs = {}
     subscribers.each{ |sub| subs[sub.id.to_s] = sub.sender.to_s }
 
-    { name => { 'subscribers' => subs } }.to_yaml
+    {
+      name => {
+        'logger' => logger.to_s,
+        'subscribers' => subs
+      }
+    }.to_yaml
   end
 end
