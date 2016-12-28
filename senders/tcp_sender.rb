@@ -7,9 +7,9 @@ class TCPSender
   end
 
   def puts(msg)
-    s = TCPSocket.new(@host, @port)
-    s.puts(msg)
-    s.close
+    socket = TCPSocket.new(@host, @port)
+    socket.puts(msg)
+    socket.close
   end
 
   def to_s

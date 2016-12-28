@@ -10,8 +10,6 @@ class Router
   end
 
   def route(message)
-    puts "routing: #{message}"
-
     case message.command
     when 'pub'          then publish(message)
     when 'sub'          then send_confirmation_challenge(message)

@@ -15,10 +15,7 @@ class Channel
   end
 
   def publish(message)
-    subscribers.each do |s|
-      puts "  #{s.sender} -> ##{message.channel} #{message.body}"
-      s.puts(message)
-    end
+    subscribers.each{ |s| s.puts(message) }
   end
 
   def to_yaml
