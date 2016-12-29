@@ -16,7 +16,13 @@ class Channel
 
   def publish(message)
     logger.puts(message)
-    subscribers.each{ |s| s.puts(message) }
+    subscribers.each do |s|
+      begin
+        s.puts(message)
+      rescue StandardError => e
+        logger.puts("ERROR on ##{name}: Cannot send to #{s.id} via '#{s.sender}'. Cause: #{e}")
+      end
+    end
   end
 
   def to_yaml
