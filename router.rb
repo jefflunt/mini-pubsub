@@ -20,7 +20,7 @@ class Router
   end
 
   def publish(message)
-    @channels[message.channel].publish(message)
+    @channels[message.channel].publish(message) unless @channels[message.channel].nil?
   end
 
   def send_confirmation_challenge(sub_request)
