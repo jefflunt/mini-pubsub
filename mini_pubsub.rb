@@ -8,6 +8,7 @@ require_relative './errors/fatal_sending_error'
 config = ConfigReader.load('./config.yml')
 router = Router.new(ChannelSerializer.read_file(config.channels_file))
 receiver = ReceiverBuilder.build(config.receiver)
+puts "Receiver: #{receiver.inspect}"
 puts "Router: #{router}"
 
 begin
