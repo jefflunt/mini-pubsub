@@ -1,3 +1,6 @@
+# system and dev items
 .DS_Store
+.bundle/
+
 channels.yml
 config.yml
