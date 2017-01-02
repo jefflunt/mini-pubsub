@@ -1,4 +1,4 @@
-require_relative './errors/unknown_config_option'
+require_relative '../errors/unknown_config_option'
 
 class Config
   def initialize(config_attr)

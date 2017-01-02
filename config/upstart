@@ -1,0 +1,26 @@
+# mini-pubsub - a pubsub server
+# This is a sample upstart config file. It assumes the following:
+# - Ubuntu or similar server
+# - upstart utility installed on systam
+# - rbenv is used as the ruby environment manager
+# - a user 'mini-pubsub' exists on the system, and their home folder is /home/mini-pubsub/
+# - run on default port 11840
+
+description     "mini-pubsub"
+author          "@jefflunt"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+script
+        exec /home/mini-pubsub/.rbenv/shims/ruby /home/mini-pubsub/mini-pubsub/mini-pubsub.rb
+end script
+
+pre-start script
+        echo "[`date`] mini-pubsub server starting ..." >> /var/log/mini-pubsub.log
+        echo "[`date`] |-> see /var/log/upstart/mini-pubsub.log for status" >> /var/log/mini-pubsub.log
+end script
+
+pre-stop script
+        echo "[`date`] mini-pubsub server stopping ..." >> /var/log/mini-pubsub.log
+end script

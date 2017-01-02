@@ -1,11 +1,11 @@
-require_relative './config_reader'
+require_relative './config/config_reader'
 require_relative './router'
 require_relative './receivers/receiver_builder'
 require_relative './channel_serializer'
 require_relative './errors/end_of_stdin'
 require_relative './errors/fatal_sending_error'
 
-config = ConfigReader.load('./config.yml')
+config = ConfigReader.load('./config/config.yml')
 router = Router.new(ChannelSerializer.read_file(config.channels_file))
 receiver = ReceiverBuilder.build(config.receiver)
 puts "Receiver: #{receiver.inspect}"
