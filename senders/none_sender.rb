@@ -1,5 +1,5 @@
 class NoneSender
-  def puts(msg)
+  def publish(msg)
     nil
   end
 

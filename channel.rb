@@ -15,12 +15,12 @@ class Channel
   end
 
   def publish(message)
-    logger.puts(message)
+    logger.publish(message)
     subscribers.each do |s|
       begin
-        s.puts(message)
+        s.publish(message)
       rescue StandardError => e
-        logger.puts("ERROR on ##{name}: Cannot send to #{s.id} via '#{s.sender}'. Cause: #{e}")
+        logger.publish("ERROR on ##{name}: Cannot send to #{s.id} via '#{s.sender}'. Cause: #{e}")
       end
     end
   end

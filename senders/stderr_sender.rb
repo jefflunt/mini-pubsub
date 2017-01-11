@@ -1,5 +1,5 @@
 class STDERRSender
-  def puts(message)
+  def publish(message)
     STDERR.puts("STDERR: #{message}")
   end
 

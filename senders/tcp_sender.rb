@@ -6,7 +6,7 @@ class TCPSender
     @port = @port.to_i
   end
 
-  def puts(msg)
+  def publish(msg)
     socket = TCPSocket.new(@host, @port)
     socket.puts(msg)
     socket.close

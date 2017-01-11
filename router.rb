@@ -26,7 +26,7 @@ class Router
   def send_confirmation_challenge(sub_request)
     new_sub = SubscriberBuilder.build(sender_spec: sub_request.body)
     @confirmation_tokens['1234'] = new_sub
-    new_sub.puts(Message.new("confirm ##{sub_request.channel} 1234"))
+    new_sub.publish(Message.new("confirm ##{sub_request.channel} 1234"))
   end
 
   def confirm_subscription(message)

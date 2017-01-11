@@ -8,7 +8,7 @@ class Subscriber
     @sender = SenderBuilder.build(sender_spec)
   end
 
-  def puts(message)
-    @sender.puts(message)
+  def publish(message)
+    @sender.publish(message)
   end
 end

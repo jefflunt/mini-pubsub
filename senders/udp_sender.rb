@@ -7,7 +7,7 @@ class UDPSender
     @port = @port.to_i
   end
 
-  def puts(msg)
+  def publish(msg)
     socket = UDPSocket.new
     socket.send(msg, 0, @host, @port)
     socket.close

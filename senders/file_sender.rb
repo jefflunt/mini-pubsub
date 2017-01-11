@@ -3,7 +3,7 @@ class FileSender
     @filename = filename
   end
 
-  def puts(message)
+  def publish(message)
     File.open(@filename, 'a') { |f| f.puts(message) }
   end
 

@@ -1,5 +1,5 @@
 class STDOUTSender
-  def puts(message)
+  def publish(message)
     STDOUT.puts(message)
   end
 
