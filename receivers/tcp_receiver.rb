@@ -7,7 +7,7 @@ class TCPReceiver
     @server = TCPServer.new(port)
   end
 
-  def gets
+  def receive
     client = @server.accept
     raw_msg = client.gets
     client.close

@@ -13,7 +13,7 @@ puts "Router: #{router}"
 
 begin
   loop do
-    router.route(receiver.gets)
+    router.route(receiver.receive)
   end
 rescue MiniPubSub::FatalSendingError, MiniPubSub::EndOfSTDIN, Interrupt => e
   puts "Shutdown ... #{e.class.name}"

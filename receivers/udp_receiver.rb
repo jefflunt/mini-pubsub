@@ -10,7 +10,7 @@ class UDPReceiver
     @socket.bind('0.0.0.0', @port)
   end
 
-  def gets
+  def receive
     raw_msg, address = @socket.recvfrom(MAXIMUM_PACKET_SIZE_BYTES)
 
     Message.new(raw_msg)

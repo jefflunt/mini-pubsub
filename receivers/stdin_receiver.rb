@@ -6,7 +6,7 @@ class STDINReceiver
     puts 'Receiving on STDIN ...'
   end
 
-  def gets
+  def receive
     raise MiniPubSub::EndOfSTDIN if ARGF.eof?
     Message.new(ARGF.gets.chomp)
   end
