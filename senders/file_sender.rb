@@ -1,6 +1,10 @@
-class FileSender
-  def initialize(filename)
-    @filename = filename
+require_relative './none_sender'
+
+class FileSender < NoneSender
+  def initialize(destination)
+    super(destination)
+
+    @filename = destination
   end
 
   def publish(message)

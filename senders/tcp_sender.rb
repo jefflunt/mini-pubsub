@@ -1,7 +1,10 @@
 require 'socket'
+require_relative './none_sender'
 
-class TCPSender
+class TCPSender < NoneSender
   def initialize(destination)
+    super(destination)
+
     @host, @port = destination.split(':')
     @port = @port.to_i
   end

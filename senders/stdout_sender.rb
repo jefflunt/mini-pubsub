@@ -1,6 +1,8 @@
-class STDOUTSender
+require_relative './none_sender'
+
+class STDOUTSender < NoneSender
   def initialize(destination)
-    # destination not configurable
+    super(destination)
   end
 
   def publish(message)
