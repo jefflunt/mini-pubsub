@@ -7,14 +7,14 @@ require_relative './tcp_sender'
 
 module SenderBuilder
   def self.build(sender_spec)
-    type, meta = sender_spec.split(' ')
+    type, destination = sender_spec.split(' ')
 
     case type
-    when 'none'   then NoneSender.new
-    when 'stdout' then STDOUTSender.new
-    when 'stderr' then STDERRSender.new
-    when 'file'   then FileSender.new(meta)
-    when 'tcp'    then TCPSender.new(meta)
+    when 'none'   then NoneSender.new(destination)
+    when 'stdout' then STDOUTSender.new(destination)
+    when 'stderr' then STDERRSender.new(destination)
+    when 'file'   then FileSender.new(destination)
+    when 'tcp'    then TCPSender.new(destination)
     else
       raise MiniPubSub::UnknownSenderType, type
     end

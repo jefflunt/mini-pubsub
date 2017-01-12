@@ -1,4 +1,8 @@
 class STDOUTSender
+  def initialize(destination)
+    # destination not configurable
+  end
+
   def publish(message)
     STDOUT.puts(message)
   end

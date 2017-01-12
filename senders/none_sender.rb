@@ -1,4 +1,8 @@
 class NoneSender
+  def initialize(destination)
+    # no destination
+  end
+
   def publish(msg)
     nil
   end
