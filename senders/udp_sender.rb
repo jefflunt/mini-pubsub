@@ -12,4 +12,8 @@ class UDPSender
     socket.send(msg, 0, @host, @port)
     socket.close
   end
+
+  def to_s
+    "udp #{@host}:#{@port}"
+  end
 end
