@@ -4,13 +4,13 @@ class TwilioSMS < NoneSender
   def initialize(destination)
     super(destination)
 
-		@account_sid, @auth_token, @from, @to = destination.split(' ')
+    @account_sid, @auth_token, @from, @to = destination.split(' ')
   end
 
   def publish(msg)
     client = Twilio::REST::Client.new @account_sid, @auth_token
 
-		client.account.messages.create({
+    client.account.messages.create({
       from: @from,
       to:   @to,
       body: msg.body
