@@ -34,6 +34,6 @@ class Channel
         'logger' => logger.to_s,
         'subscribers' => subs
       }
-    }.to_yaml
+    }.to_yaml.gsub("---\n", '')
   end
 end
