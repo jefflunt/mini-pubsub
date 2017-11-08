@@ -1,6 +1,9 @@
 type: worker
 name: mini-pubsub
 desc: experimental pubsub server for sending plaintext messages
-health_check: "telnet 29239 pub #default it works!"
+health_check: "tcp 29239 pub #default it works!"
 inbound:
-  - tcp 23239 0.0.0.0/0
+  - tcp 29239 0.0.0.0/0
+outbound:
+  - tcp 1-65535 0.0.0.0/0
+  - udp 1-65535 0.0.0.0/0
