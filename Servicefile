@@ -1,6 +1,6 @@
 type: worker
 name: mini-pubsub
 desc: experimental pubsub server for sending plaintext messages
-health_check: tcp 29239 pub \#default automated health check
+health_check: telnet 29239 pub #default automated health check
 inbound:
   - tcp 23239 0.0.0.0/0
