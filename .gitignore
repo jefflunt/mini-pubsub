@@ -1,6 +1,7 @@
 # system and dev items
 .DS_Store
 .bundle/
+.rbenv-gemsets
 
 channels.yml
 config.yml
