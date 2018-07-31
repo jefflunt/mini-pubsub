@@ -7,13 +7,12 @@ if ARGV.length != 1
   exit 1
 end
 
-large_string = IO.read(ARGV.shift)
-msg = "pub stdout #{large_string}\n"
+msgs = IO.read(ARGV.shift)
+num_msgs = msgs.lines.length
 
 retries = 0
-iterations = 100_000
 start_time = Time.now
-iterations.times do |i|
+msgs.each_line do |msg|
   begin
     socket = UNIXSocket.new('/tmp/mini-pubsub.sock')
     socket.write msg
@@ -24,4 +23,4 @@ iterations.times do |i|
   end
 end
 
-puts "#{'%.2f' % (iterations / (Time.now - start_time))}/sec, with #{retries} retries"
+puts "#{'%.2f' % (num_msgs / (Time.now - start_time))}/sec, with #{retries} retries"
