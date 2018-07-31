@@ -25,5 +25,5 @@ rescue => e
   puts "FAILURE\n  #{e}"
   puts e.backtrace
 ensure
-  ChannelSerializer.write_file(router.channels, config.channels_file)
+  receiver.cleanup
 end

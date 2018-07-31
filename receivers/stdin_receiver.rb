@@ -10,4 +10,7 @@ class STDINReceiver
     raise MiniPubSub::EndOfSTDIN if ARGF.eof?
     Message.new(ARGF.gets.chomp)
   end
+
+  def cleanup
+  end
 end

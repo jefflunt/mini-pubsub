@@ -15,4 +15,7 @@ class UDPReceiver
 
     Message.new(raw_msg)
   end
+
+  def cleanup
+  end
 end
