@@ -5,6 +5,7 @@ require_relative './stderr_sender'
 require_relative './file_sender'
 require_relative './tcp_sender'
 require_relative './udp_sender'
+require_relative './unix_sender'
 require_relative './twilio_sms'
 
 module SenderBuilder
@@ -15,6 +16,7 @@ module SenderBuilder
     'file'        => FileSender,
     'tcp'         => TCPSender,
     'udp'         => UDPSender,
+    'unix'        => UNIXSender,
     'twilio-sms'  => TwilioSMS
   }
 
