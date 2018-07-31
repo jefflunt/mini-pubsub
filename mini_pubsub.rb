@@ -6,7 +6,6 @@ require_relative './channel_builder'
 require_relative './errors/end_of_stdin'
 require_relative './errors/fatal_sending_error'
 
-
 StartupCheck.run
 
 config = ConfigReader.load(ARGV.shift)
