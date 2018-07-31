@@ -2,7 +2,7 @@ require_relative './startup_check'
 require_relative './config/config_reader'
 require_relative './router'
 require_relative './receivers/receiver_builder'
-require_relative './channel_serializer'
+require_relative './channel_builder'
 require_relative './errors/end_of_stdin'
 require_relative './errors/fatal_sending_error'
 
@@ -10,7 +10,7 @@ require_relative './errors/fatal_sending_error'
 StartupCheck.run
 
 config = ConfigReader.load(ARGV.shift)
-router = Router.new(ChannelSerializer.read_file(config.channels_file))
+router = Router.new(ChannelBuilder.build(config.channels))
 receiver = ReceiverBuilder.build(config.receiver)
 puts "Receiver: #{receiver.inspect}"
 puts "Router: #{router}"

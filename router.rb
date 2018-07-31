@@ -11,9 +11,7 @@ class Router
 
   def route(message)
     case message.command
-    when 'pub'          then publish(message)
-    when 'sub'          then send_confirmation_challenge(message)
-    when 'sub-confirm'  then confirm_subscription(message)
+    when 'pub' then publish(message)
     else
       raise MiniPubSub::UnknownCommand, message.command
     end
@@ -21,19 +19,6 @@ class Router
 
   def publish(message)
     @channels[message.channel].publish(message) unless @channels[message.channel].nil?
-  end
-
-  def send_confirmation_challenge(sub_request)
-    new_sub = SubscriberBuilder.build(sender_spec: sub_request.body)
-    @confirmation_tokens['1234'] = new_sub
-    new_sub.publish(Message.new("confirm ##{sub_request.channel} 1234"))
-  end
-
-  def confirm_subscription(message)
-    unless (sub = @confirmation_tokens[message.body]).nil?
-      @channels[message.channel].add_subscriber(sub)
-      @confirmation_tokens.delete(message.body)
-    end
   end
 
   def to_s
