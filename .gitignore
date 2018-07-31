@@ -3,5 +3,4 @@
 .bundle/
 .rbenv-gemsets
 
-channels.yml
 config.yml
