@@ -1,23 +1,25 @@
 require 'twilio-ruby'
 
-class TwilioSMS < NoneSender
-  def initialize(destination)
-    super(destination)
+module Senders
+  class TwilioSMS
+    def initialize(destination)
+      super(destination)
 
-    @account_sid, @auth_token, @from, @to = destination.split(' ')
-  end
+      @account_sid, @auth_token, @from, @to = destination.split(' ')
+    end
 
-  def publish(msg)
-    client = Twilio::REST::Client.new @account_sid, @auth_token
+    def publish(msg)
+      client = Twilio::REST::Client.new @account_sid, @auth_token
 
-    client.account.messages.create({
-      from: @from,
-      to:   @to,
-      body: msg.body
-    })
-  end
+      client.account.messages.create({
+        from: @from,
+        to:   @to,
+        body: msg.body
+      })
+    end
 
-  def to_s
-    "twilio-sms #{@account_sid} #{@auth_token} #{@from} #{@to}"
+    def to_s
+      "twilio-sms #{@account_sid} #{@auth_token} #{@from} #{@to}"
+    end
   end
 end

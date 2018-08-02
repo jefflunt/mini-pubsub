@@ -1,4 +1,4 @@
-require_relative './senders/sender_builder'
+require_relative './senders/builder'
 
 class Subscriber
   attr_reader :id, :sender

@@ -1,7 +1,7 @@
 require 'yaml'
 require_relative './channel'
 require_relative './subscriber'
-require_relative './senders/sender_builder'
+require_relative './senders/builder'
 require_relative './subscriber_builder'
 
 module ChannelBuilder
