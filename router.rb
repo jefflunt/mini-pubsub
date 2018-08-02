@@ -26,7 +26,6 @@ class Router
 
     @channels.each do |channel_name, channel|
       str << "  ##{channel_name}:\n"
-      str << "    logger: #{channel.logger.to_s}\n"
       str << "    subscribers:\n"
       channel.subscribers.each do |subscriber|
       str << "      #{subscriber.id}: #{subscriber.sender}\n"

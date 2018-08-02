@@ -2,8 +2,6 @@ require 'socket'
 require_relative '../message'
 
 class UNIXReceiver
-  MAX_MESSAGE_SIZE = 65536
-
   def initialize(socket_name)
     @socket_name = socket_name
     @server = UNIXServer.new(@socket_name)

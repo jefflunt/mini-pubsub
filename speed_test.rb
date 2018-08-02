@@ -8,13 +8,14 @@ unless ARGV.length == 2
 end
 
 msgs = IO.read(ARGV.shift)
+sock_name = ARGV.shift
 num_msgs = msgs.lines.length
 
 retries = 0
 start_time = Time.now
 msgs.each_line do |msg|
   begin
-    socket = UNIXSocket.new(ARGV.shift)
+    socket = UNIXSocket.new(sock_name)
     socket.write msg
     socket.close
   rescue
