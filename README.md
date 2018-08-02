@@ -29,14 +29,14 @@ even know) whether or not anyone is listening to the messages they send.
 ## Receivers
 
 The job of the `Receiver` is to accept incoming `Messages` from `Publishers` via
-some `Receiving` mechanism (i.e. TCP, UDP, HTTP, STDIN, etc.), and forward them
+some `Receiving` mechanism (i.e. TCP, UDP, UNIX socket, STDIN, etc.), and forward them
 to a `Router` for delivery.
 
 
 ## Router
 
 A `Router` takes incoming messages from a `Receiver`, and sends them to the
-appropriate `Channels`.
+appropriate `Subscribers` on `Channels`.
 
 
 ## Channel
@@ -48,13 +48,13 @@ to all `Subscribers` on that `Channel`.
 ## Subscriber
 
 A `Subscriber` has a `Sender`, which is the combination of a method of delivery
-(TCP, UDP, HTTP, STDOUT, etc.) and the information necessary (such as an IP
+(TCP, UDP, UNIX Socket, STDOUT, etc.) and the information necessary (such as an IP
 address or hostname) needed to deliver a `Message` to a `Subscriber`.
 
 
 ## Senders
 
-The `Senders` send messages (via TCP, UDP, HTTP, STDOUT, etc.) to `Subscribers`
+The `Senders` send messages (via TCP, UDP, UNIX socket, STDOUT, etc.) to `Subscribers`
 using the `Subscriber's` addressing infomration.
 
 
