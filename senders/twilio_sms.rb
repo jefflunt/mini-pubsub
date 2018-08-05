@@ -3,8 +3,6 @@ require 'twilio-ruby'
 module Senders
   class TwilioSMS
     def initialize(destination)
-      super(destination)
-
       @account_sid, @auth_token, @from, @to = destination.split(' ')
     end
 

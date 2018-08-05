@@ -1,7 +1,6 @@
 require 'yaml'
 require_relative './channel'
 require_relative './subscriber'
-require_relative './senders/builder'
 require_relative './subscriber_builder'
 
 module ChannelBuilder
@@ -9,7 +8,7 @@ module ChannelBuilder
     channel_data.each do |channel_name, data|
       channel_data[channel_name] = Channel.new(
         name: channel_name,
-        subscribers: SubscriberBuilder.build_list(data['subscribers'])
+        subscribers: SubscriberBuilder.build_list(data)
       )
     end
   end

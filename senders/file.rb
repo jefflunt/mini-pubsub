@@ -1,8 +1,6 @@
 module Senders
   class File
     def initialize(destination)
-      super(destination)
-
       @filename = destination
     end
 

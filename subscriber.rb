@@ -5,7 +5,7 @@ class Subscriber
 
   def initialize(id:, sender_spec:)
     @id = id
-    @sender = SenderBuilder.build(sender_spec)
+    @sender = Senders::Builder.build(sender_spec)
   end
 
   def publish(message)

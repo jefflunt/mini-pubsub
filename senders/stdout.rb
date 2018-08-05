@@ -1,7 +1,6 @@
 module Senders
   class STDOUT
     def initialize(destination)
-      super(destination)
     end
 
     def publish(message)

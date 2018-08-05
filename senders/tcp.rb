@@ -3,8 +3,6 @@ require 'socket'
 module Senders
   class TCP
     def initialize(destination)
-      super(destination)
-
       @host, @port = destination.split(':')
       @port = @port.to_i
     end

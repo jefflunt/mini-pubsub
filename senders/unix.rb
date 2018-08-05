@@ -3,8 +3,6 @@ require 'socket'
 module Senders
   class UNIX
     def initialize(destination)
-      super(destination)
-
       @socket_name = destination
     end
 
