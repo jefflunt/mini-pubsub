@@ -22,15 +22,14 @@ class Router
   end
 
   def to_s
-    str = "{\n"
-
+    str = ''
     @channels.each do |channel_name, channel|
-      str << "  #{channel_name}:\n"
+      str << "#{channel_name}:\n"
       channel.subscribers.each do |subscriber|
-        str << "    #{subscriber.id}: #{subscriber.sender}\n"
+        str << "  #{subscriber.id}: #{subscriber.sender}\n"
       end
     end
 
-    str << "}"
+    str
   end
 end

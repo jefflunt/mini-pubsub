@@ -1,6 +1,8 @@
 require 'socket'
 require 'time'
 
+Process.setproctitle('mini_pubsub-speed_test')
+
 unless ARGV.length == 2
   puts 'Usage:'
   puts '  ruby speed_test.rb <file containing test message> <unix socket>'
