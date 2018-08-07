@@ -6,15 +6,11 @@ module Senders
       @socket_name = destination
     end
 
-    def publish(message)
-      retries = 0
-      begin
-        socket = UNIXSocket.new(@socket_name)
-        socket.write msg
-        socket.close
-      rescue
-        retry unless (retries += 1) > 10
-      end
+    def publish(msg)
+      socket = UNIXSocket.new(@socket_name)
+      socket.write msg
+      socket.flush
+      socket.close
     end
 
     def to_s

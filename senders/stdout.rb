@@ -4,7 +4,7 @@ module Senders
     end
 
     def publish(message)
-      STDOUT.puts(message)
+      puts(message)
     end
 
     def to_s
