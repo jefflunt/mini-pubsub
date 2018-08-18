@@ -25,6 +25,7 @@ module Receivers
 
     def cleanup
       @server.close
+      `rm #{@socket_name}`
     end
   end
 end
