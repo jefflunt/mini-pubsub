@@ -13,7 +13,7 @@ class Router
     case message.command
     when 'pub' then publish(message)
     else
-      raise MiniPubSub::UnknownCommand, message.command
+      STDERR.puts "ERR Unknown command or bad message: '#{message}'"
     end
   end
 
