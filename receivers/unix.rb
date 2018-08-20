@@ -3,7 +3,7 @@ require_relative '../message'
 
 module Receivers
   class UNIX
-    ACCEPT_BACKLOG = 10
+    ACCEPT_BACKLOG = 1000
 
     def initialize(socket_name)
       @socket_name = socket_name
