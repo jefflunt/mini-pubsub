@@ -18,7 +18,8 @@ class Channel
       begin
         s.publish(message)
       rescue StandardError => e
-        STDERR.puts "ERR on ##{name}: Cannot send to #{s.id} via '#{s.sender}'. Cause: #{e}"
+        STDERR.puts "ERR on ##{name}: Cannot send to '#{s.id}' via '#{s.sender}'. Cause: #{e}"
+        puts " >> #{message}"
       end
     end
   end

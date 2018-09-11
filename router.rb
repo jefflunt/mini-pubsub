@@ -18,7 +18,11 @@ class Router
   end
 
   def publish(message)
-    @channels[message.channel].publish(message) unless @channels[message.channel].nil?
+    if @channels[message.channel].nil?
+      puts "Unknown channel dest.: #{message}"
+    else
+      @channels[message.channel].publish(message)
+    end
   end
 
   def to_s
