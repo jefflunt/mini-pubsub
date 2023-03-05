@@ -81,4 +81,6 @@ Sender (actually delivers the Message to Subscibers' addresses)
 Subscribers (hopefully get the Message originally sent by the Publisher)
 ```
 
-    [1]: https://github.com/jefflunt/tiny_bus
+links:
+
+  [1]: https://github.com/jefflunt/tiny_bus
