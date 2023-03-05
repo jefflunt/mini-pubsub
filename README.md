@@ -1,3 +1,11 @@
+DEPRECATED March 2023: this repo tried to be a global solution to not only the pubsub bus,
+but also the input and output methods (sockets, network, file, etc.). I'd
+recommend using `https://github.com/jefflunt/tiny_bus` instead for the message
+bus solution, and consider cribbing the `senders` and `receivers` from this repo
+if you find them helpful.
+
+---
+
 Mini PubSub sends messages between publishers and subscribers. The communication
 is unidirectional; subscribers cannot reply to messages.
 
